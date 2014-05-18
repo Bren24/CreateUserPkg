@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.10), see www.w3.org">
+
+  <style type="text/css">
+
+  body {
+    font-family: sans-serif;
+  }
+
+  li {
+    list-style: disc;
+  }
+
+  </style>
+
+  <title></title>
+</head>
+
+<body>
+  <h1>Download</h1>
+
+  <p>Download CreateUserPkg from the project homepage at <a href=
+  "http://magervalp.github.com/CreateUserPkg/">http://magervalp.github.com/CreateUserPkg/</a></p>
+
+  <h1>Overview</h1>
+
+  <p>This utility creates packages that create local user accounts
+  when installed. The packages can create users on 10.5-10.8, and
+  they are compatible with all workflows that can install standard
+  installer pkgs. For the details on how the packages work, see
+  Greg Neagle&rsquo;s article in the <a href=
+  "http://www.mactech.com/issue-TOCs-2012">May 2012 issue of
+  MacTech</a>.</p>
+
+  <h2>Security Notes</h2>
+
+  <p>Packages created using this utility encrypts the password as a
+  salted SHA1 hash, which is how 10.5 and 10.6 normally stores it.
+  Using a dictionary based attack they are reasonably easy to crack
+  on modern machines, so make sure you pick a good, strong
+  password. In 10.7 and up this is converted to PBKDF2 upon first
+  login, which is much harder to crack, but the SHA1 hash can still
+  be extracted from the package.</p>
+
+  <p>If you enable automatic login the password is stored in a
+  kcpassword file, which is merely obfuscated and not encrypted -
+  extracting the password (no matter how strong) is trivial.</p>
+
+  <h2>Credits</h2>
+
+  <ul>
+    <li>Code by Per Olofsson, <a href=
+    "mailto:per.olofsson@gu.se">per.olofsson@gu.se</a></li>
+
+    <li>User deployment method by Greg Neagle</li>
+
+    <li>Bash plist modification code by Michael Lynn</li>
+  </ul>
+
+  <h2>Version History</h2>
+
+  <ul>
+    <li>1.2.4
+
+      <ul>
+        <li>Fixed permissions for users to change their name,
+        password, picture, etc (thanks to Greg Collen).</li>
+      </ul>
+    </li>
+
+    <li>1.2.3
+
+      <ul>
+        <li>Allow packages with empty password (thanks to Dan
+        Keller).</li>
+      </ul>
+    </li>
+
+    <li>1.2.2
+
+      <ul>
+        <li>Fixed automatic logins that only worked on 2nd boot
+        (thanks to Joseph Chilcote).</li>
+      </ul>
+    </li>
+
+    <li>1.2.1
+
+      <ul>
+        <li>Fixed empty password hash when you clicked Save without
+        leaving the Password/Verify field (thanks to ih84ds).</li>
+      </ul>
+    </li>
+
+    <li>1.2
+
+      <ul>
+        <li>Added automatic login using kcpassword.</li>
+
+        <li>Package now adds users to admin group instead of using
+        primary group 80 (thanks to Michael Lynn, Jason Bush, Greg
+        Neagle). Primary group is always 20.</li>
+      </ul>
+    </li>
+
+    <li>1.1
+
+      <ul>
+        <li>create_user.pkg files can now be opened for
+        editing.</li>
+
+        <li>Added user picture.</li>
+
+        <li>App is now sandboxed.</li>
+      </ul>
+    </li>
+
+    <li>1.0.3
+
+      <ul>
+        <li>Fixed Package ID and Version being set
+        incorrectly.</li>
+      </ul>
+    </li>
+
+    <li>1.0.2
+
+      <ul>
+        <li>Fixed ownership of items in package Payload.</li>
+
+        <li>Changed salted sha1 shadow hash to upper case which
+        fixes authentication on 10.5 and 10.6 (thanks to Allister
+        Banks).</li>
+      </ul>
+    </li>
+
+    <li>1.0.1
+
+      <ul>
+        <li>Fixed postinstall script for 10.6 (thanks to Allister
+        Banks).</li>
+      </ul>
+    </li>
+
+    <li>1.0
+
+      <ul>
+        <li>Initial release.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>License</h2>
+  <pre>
+<code>Copyright 2012 Per Olofsson
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code>
+</pre>
+</body>
+</html>
